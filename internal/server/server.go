@@ -34,6 +34,7 @@ patch.Description=existing.Description};if patch.DefaultBranch==""{
 patch.DefaultBranch=existing.DefaultBranch};if patch.Visibility==""{
 patch.Visibility=existing.Visibility};if patch.Status==""{
 patch.Status=existing.Status}
+    if patch.SizeBytes==0{patch.SizeBytes=existing.SizeBytes};if patch.StarCount==0{patch.StarCount=existing.StarCount}
     s.db.Update(&patch);wj(w,200,s.db.Get(patch.ID))
 }
 func(s *Server)del(w http.ResponseWriter,r *http.Request){s.db.Delete(r.PathValue("id"));wj(w,200,map[string]string{"deleted":"ok"})}
